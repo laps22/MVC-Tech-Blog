@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { blogPost, User } = require('../../models');
+const { BlogPosts, User } = require('../../models');
 
 router.post('/', async (req, res) => {
     try {
         const user = await User.findOne({ where: { username: req.session.username } });
-        const blogPostData = await blogPost.create({
+        const blogPostData = await BlogPosts.create({
             title: req.body.title,
             description: req.body.description,
             user_id: user.id,
@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
 
 router.put('/update', async (req, res) => {
     try {
-        const posts = await blogPost.findByPk(req.body.id);
+        const posts = await BlogPosts.findByPk(req.body.id);
         posts.update({ 
             title: req.body.title, 
             description: req.body.description, 
@@ -34,7 +34,7 @@ router.put('/update', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const post = await blogPost.destroy({
+        const post = await BlogPosts.destroy({
             where: {
                 id: req.params.id
             }

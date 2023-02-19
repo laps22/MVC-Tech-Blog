@@ -1,7 +1,8 @@
  <h3 class="card-title">My Posts</h3>
-
+ <br>
+ <br>
  {{#each blogPosts as |post| }}
-<a href="/dashboard/updatepost/{{blogPost.id}}" role="button" class="btn btn-secondary btn-lg d-block mt-3">
+<a href="/dashboard/{{blogPost.id}}" role="button" class="btn btn-secondary btn-lg d-block mt-3">
   <div class="card-header d-flex justify-content-between">
     <div>{{blogPost.title}}</div>
     <div>{{format_time blogPost.date}}</div>
@@ -9,7 +10,9 @@
 </a>
 {{/each}}
 <div class="col-auto">
-  <button id="submit" type="submit" class="btn btn-primary mb-3" href="/dashboard/createpost">Create Post</button>
+  <button id="submit" type="submit" class="btn btn-primary mb-3" href="/createpost">Create Post</button>
 </div>
+
+
 
 

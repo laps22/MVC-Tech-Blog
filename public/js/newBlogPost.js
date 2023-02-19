@@ -5,7 +5,7 @@ const newPost = async (event) => {
     const description = document.querySelector('#description').value.trim();
 
     if (title && description) {
-        const response = await fetch('/api/blogPost', {
+        const response = await fetch('/createpost', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title, description }),

@@ -1,21 +1,22 @@
-{{!-- nav links 
+{{!-- nav links
 
 homepage, dashboard
 logout
- --}}
+--}}
 
- <h3 class="card-title">Login</h3>
+<h3 class="card-title">Login</h3>
 
- <div class="mb-3 login-form">
-  <label for="exampleFormControlInput1" class="form-label">Username:</label>
-  <input type="text" class="form-control" id="username-login">
-</div>
- <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Password:</label>
-  <input type="password" class="form-control" id="password-login">
-</div>
-<button type="submit" class="btn btn-success">Log In!</button>
-
-<a href="/signup">Sign Up Instead!</a>
-
-<script src="/public/js/login.js"></script>
+<form class="login-form">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Username:</label>
+    <input type="text" class="form-control" id="username-login">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Password:</label>
+    <input type="password" class="form-control" id="password-login">
+  </div>
+  <button type="submit" class="btn btn-success">Log In!</button>
+  <br>
+  <a href="/signup">Sign Up Instead!</a>
+</form>
+<script src="/js/login.js"></script>

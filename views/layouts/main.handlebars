@@ -27,9 +27,9 @@
                             <a class="nav-link" href="/dashboard">Dashboard</a>
                         </li>
                         {{#if logged_in}}
-                        <a id="logout" class="nav-link">
-                            Log Out
-                        </a>
+                        <li class="nav-item">
+                            <a class="nav-link" id="logout" href="/logout">Log Out</a>
+                        </li>
                         {{else}}
                         <li class="nav-item">
                             <a class="nav-link" href="/signup">Sign up</a>
