@@ -29,6 +29,34 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.post('/login', async (req, res) => {
+    try {
+      const { email, password } = req.body;
+      const user = await User.findOne({ where: { email } });
+  
+      if (!user) {
+        res.status(400).json({ message: 'Invalid email or password' });
+        return;
+      }
+  
+      const passwordValid = await bcrypt.compare(password, user.password);
+  
+      if (!passwordValid) {
+        res.status(400).json({ message: 'Invalid email or password' });
+        return;
+      }
+  
+      req.session.logged_in = true;
+      req.session.user_id = user.id;
+      req.session.save(); // Save the session before redirecting
+  
+      res.redirect('/dashboard');
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+
 
 router.get('/signup', (req, res) => {
     try {
