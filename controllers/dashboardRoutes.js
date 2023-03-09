@@ -20,7 +20,10 @@ router.get('/', withAuth, async (req, res) => {
 
 
 // create post
-router.get('/createpost', withAuth, async (req, res) => {
+router.get('/newpost', withAuth, async (req, res) => {
+    const newPost = await BlogPosts.create({
+
+    })
     res.render('newBlogPost');
 });
 
@@ -35,3 +38,4 @@ router.get('/updatepost/:id', withAuth, async (req, res) => {
 })
 
 module.exports = router;
+
